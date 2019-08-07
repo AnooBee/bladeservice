@@ -7,7 +7,3 @@ CREATE TABLE blades (
   notes VARCHAR(512) DEFAULT NULL
 );
 
-INSERT INTO blades (name, stars, notes) VALUES
-  ('Feather', 4, 'Good'),
-  ('Wilkinson', 3, 'okay'),
-  ('Silver', 3, 'bleh');
