@@ -22,6 +22,7 @@ public class DataInit implements ApplicationRunner {
         long count = bladeRepository.count();
         //create some records if none exist
         if (count == 0) {
+
             Blade blade = new Blade();
             blade.setName("Feather");
             blade.setStars(4);
