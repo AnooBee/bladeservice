@@ -30,12 +30,16 @@ public class BladeController {
     @DeleteMapping("/v1/blades/{id}")
     public ResponseEntity<Void> deleteBlade(@PathVariable  long id) {
         log.debug("Controller..deleteBlade");
-
-
         bladeService.deleteBlade(id);
 
         return ResponseEntity.noContent().build();// status(HttpStatus.OK).
+    }
 
+    @GetMapping("/v1/blades/{id}")
+    public Blade getBlade(@PathVariable long id) {
+        log.debug("In getBlade: "+id);
+
+        return bladeService.getBlade(id);
     }
 
 }
