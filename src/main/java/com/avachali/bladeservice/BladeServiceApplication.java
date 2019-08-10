@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BladeserviceApplication {
+public class BladeServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BladeserviceApplication.class, args);
+		SpringApplication.run(BladeServiceApplication.class, args);
 	}
 
 }
