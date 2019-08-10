@@ -9,16 +9,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataInit implements ApplicationRunner {
 
+    @Autowired
     private BladeRepository bladeRepository ;
 
-    @Autowired
+    /*@Autowired
     public DataInit(BladeRepository bladeRepository) {
         this.bladeRepository = bladeRepository;
-    }
+    }*/
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        bladeRepository.deleteAll();
         long count = bladeRepository.count();
         //create some records if none exist
         if (count == 0) {
@@ -42,7 +44,5 @@ public class DataInit implements ApplicationRunner {
             bladeRepository.save(blade);
 
         }
-
-
     }
 }
