@@ -45,4 +45,15 @@ public class BladeService {
         //return Optional.ofNullable(blade).orElseThrow(NoSuchElementException::new);
 
     }
+
+    public Blade save(Blade blade) {
+        if (blade.getId() == -1 || blade.getId() == 0) {
+            //blade.setId(++id);
+            bladeRepository.save(blade);
+        } else {
+            deleteBlade(blade.getId());
+            bladeRepository.save(blade);
+        }
+        return blade;
+    }
 }

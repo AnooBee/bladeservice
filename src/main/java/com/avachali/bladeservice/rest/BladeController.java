@@ -42,4 +42,15 @@ public class BladeController {
         return bladeService.getBlade(id);
     }
 
+    @PutMapping("/v1/blades/{id}")
+    public ResponseEntity<Blade> updateBlade(@PathVariable long id, @RequestBody  Blade blade) {
+
+        log.debug("in updateBlade for: "+blade.toString());
+        blade = bladeService.save(blade);
+
+        return new ResponseEntity<Blade>(blade, HttpStatus.OK);
+
+
+    }
+
 }
