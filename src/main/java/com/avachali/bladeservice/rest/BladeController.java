@@ -50,6 +50,16 @@ public class BladeController {
 
         return new ResponseEntity<Blade>(blade, HttpStatus.OK);
 
+    }
+
+    @PostMapping("/v1/blades/")
+    public ResponseEntity<Blade> createBlade(@RequestBody  Blade blade) {
+
+        log.debug("in createBlade for: "+blade.toString());
+        blade = bladeService.save(blade);
+
+        return new ResponseEntity<Blade>(blade, HttpStatus.OK);
+
 
     }
 

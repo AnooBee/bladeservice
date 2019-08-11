@@ -47,6 +47,7 @@ public class BladeService {
     }
 
     public Blade save(Blade blade) {
+        log.debug("in blade service.save() :"+blade.toString());
         if (blade.getId() == -1 || blade.getId() == 0) {
             //blade.setId(++id);
             bladeRepository.save(blade);
