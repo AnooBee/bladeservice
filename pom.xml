@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<docker.image.prefix>avachali</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -58,7 +59,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- Frontend build-->
+			<!-- Frontend npm install-->
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
@@ -99,6 +100,7 @@
 				</executions>
 			</plugin>
 
+			<!--plugin to copy static files-->
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -117,6 +119,19 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!--plugin to dockerify-->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<!--
+                                <version>1.4.9</version>
+                -->
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+				</configuration>
+			</plugin>
+
 
 
 		</plugins>
