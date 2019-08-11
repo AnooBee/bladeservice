@@ -35,6 +35,9 @@ public class BladeService {
 
     public Blade getBlade(long id) {
         log.debug("in getBlade: "+id);
+        if (id == -1) {
+            return new Blade();
+        }
         Optional<Blade> blade = bladeRepository.findById(id);
         if (blade.isPresent()) {
             return blade.get();
